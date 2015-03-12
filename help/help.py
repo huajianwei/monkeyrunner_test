@@ -8,23 +8,84 @@ Created on 2015-1-22
 import os
 import sys
 import time
-import logging
+#import logging
 
-#from com.android.monkeyrunner.easy import By
-from com.android.chimpchat.hierarchyviewer import HierarchyViewer
 
 #print sys.path 
 
 from com.android.monkeyrunner import MonkeyRunner,MonkeyDevice, MonkeyImage
+from com.android.monkeyrunner.easy import By
+from com.android.chimpchat.hierarchyviewer import HierarchyViewer
 
-print 'import the class success'
-device=MonkeyRunner.waitForConnection(1.0,'3230581473448f2d')
+print  'import the class success'
+device = MonkeyRunner.waitForConnection()
+print  'The device has already connect'
 
-print 'devices has already connect'
-
+print type(device)
 #device.removePackage('myproject/bin/MyApplication.apk')
 
-device.press('KEYCODE_HOME',MonkeyDevice.DOWN_AND_UP)
+hierarchyViewer = device.getHierarchyViewer()
+print "hierarchyViewer connect succefully"
+print type(hierarchyViewer)
+
+print help(hierarchyViewer)
+
+
+print "Press Home Key"
+device.touch(241,755,"DOWN_AND_UP")
+
+MonkeyRunner.sleep(3)
+viewNodeButton = hierarchyViewer.findViewById("Settings")
+print " viewNodeButton ok"
+print type(viewNodeButton)
+
+print "*"*20
+MonkeyRunner.sleep(2)
+text =hierarchyViewer.getText(Clock)
+print type(text)
+print text.encode('utf-8')
+
+
+hierarchy_viewer = device.getHierarchyViewer()
+view_node = hierarchy_viewer.findViewById('id/prompt_text_view')
+text = view_node.namedProperties.get('mText').toString()
+pointButton = HierarchyViewer.getAbsoluteCenterOfView(viewNodeButton)
+
+
+#按钮点下后，我们需要用下面代码获取文本框里的返回值：
+#viewNodeOutput = hierarchyViewer.findViewById("id/output")
+#output = viewNodeOutput.namedProperties.get("text:mText").value
+
+#这样我们就能用output与预期的“ok”做比对了：
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#device.press('KEYCODE_HOME',MonkeyDevice.DOWN_AND_UP)
 
 print 'press home'
 
