@@ -17,39 +17,43 @@ from com.android.monkeyrunner import MonkeyRunner,MonkeyDevice, MonkeyImage
 from com.android.monkeyrunner.easy import By
 from com.android.chimpchat.hierarchyviewer import HierarchyViewer
 
-print  'import the class success'
-device = MonkeyRunner.waitForConnection()
-print  'The device has already connect'
-
-print type(device)
-#device.removePackage('myproject/bin/MyApplication.apk')
-
-hierarchyViewer = device.getHierarchyViewer()
-print "hierarchyViewer connect succefully"
-print type(hierarchyViewer)
-
-print help(hierarchyViewer)
 
 
-print "Press Home Key"
-device.touch(241,755,"DOWN_AND_UP")
-
-MonkeyRunner.sleep(3)
-viewNodeButton = hierarchyViewer.findViewById("Settings")
-print " viewNodeButton ok"
-print type(viewNodeButton)
-
-print "*"*20
-MonkeyRunner.sleep(2)
-text =hierarchyViewer.getText(Clock)
-print type(text)
-print text.encode('utf-8')
 
 
-hierarchy_viewer = device.getHierarchyViewer()
-view_node = hierarchy_viewer.findViewById('id/prompt_text_view')
-text = view_node.namedProperties.get('mText').toString()
-pointButton = HierarchyViewer.getAbsoluteCenterOfView(viewNodeButton)
+#hierarchyViewer = device.getHierarchyViewer()
+
+#print "hierarchyViewer connect succefully"
+#print type(hierarchyViewer)
+
+#print help(hierarchyViewer)
+
+
+def PressHomeKey():
+    print "Press Home Key"
+    device.touch(241,755,"DOWN_AND_UP")
+    print "Pressed Home Key"
+
+
+#MonkeyRunner.sleep(3)
+#viewNodeButton = hierarchyViewer.findViewById("Settings")
+#print " viewNodeButton ok"
+#print type(viewNodeButton)
+
+#print "*"*20
+#MonkeyRunner.sleep(2)
+#text =hierarchyViewer.getText(Clock)
+#print type(text)
+#print text.encode('utf-8')
+
+
+
+#hierarchy_viewer = device.getHierarchyViewer()
+#view_node = hierarchy_viewer.findViewById('id/prompt_text_view')
+#text = view_node.namedProperties.get('mText').toString()
+#pointButton = HierarchyViewer.getAbsoluteCenterOfView(viewNodeButton)
+
+
 
 
 #按钮点下后，我们需要用下面代码获取文本框里的返回值：
