@@ -26,16 +26,16 @@ MonkeyRunner.sleep(3)
 #start the app
 try:
     print "log in the app"
-    device.press('KEYCODE_HOME',MonkeyDevice.DOWN)
-    device.press('KEYCODE_HOME',MonkeyDevice.UP)
-    MonkeyRunner.sleep(2)
+#    device.press('KEYCODE_HOME',MonkeyDevice.DOWN)
+#    device.press('KEYCODE_HOME',MonkeyDevice.UP)
+#    MonkeyRunner.sleep(2)
     # gong neng jian
     device.touch(240,750,"DOWN_AND_UP")
     MonkeyRunner.sleep(3)
-    device.touch(65,165,"DOWN_AND_UP")
-    MonkeyRunner.sleep(4)
-    print "wait for 4 secound"
-    MonkeyRunner.sleep(4)
+#    device.touch(65,165,"DOWN_AND_UP")
+#    MonkeyRunner.sleep(4)
+#    print "wait for 4 secound"
+#    MonkeyRunner.sleep(4)
 
 except :
     print "error start  app 500.com ,please check the Activity"
@@ -44,44 +44,19 @@ except :
 #log in (aaa,123456)
 
 MonkeyRunner.sleep(2)
-try:
-    MonkeyRunner.sleep(2)
-    #denglu
-    device.touch(28,330,"DOWN_AND_UP")
-    MonkeyRunner.sleep(2)
-    device.touch(318,189,"DOWN_AND_UP")
-    MonkeyRunner.sleep(2)
-    device.touch(318,189,"DOWN_AND_UP")
-    #press the delete key
-    device.type('aaa')
-    MonkeyRunner.sleep(3)
-    device.press('KEYCODE_ENTER',MonkeyDevice.UP)
-    #device.touch(250,450,"DOWN_AND_UP")
-    device.type('123456')
-    MonkeyRunner.sleep(3)
-    device.touch(240,445,"DOWN_AND_UP")
-    MonkeyRunner.sleep(4)
 
-except:
-    print "something error happened"
 
-try:
-    result=device.takeSnapshot()
-    print "we hava already got the snapshot"
-#    result.writeToFile('G:\my\monkeyrunner_test\jieguo\dengliyuqi.png','png')
-except:
-    print "take snapshot failed"
 
-try:
-    yuqitupian = MonkeyRunner.loadImageFromFile('G:\my\monkeyrunner_test\jieguo\dengliyuqi.png','png')
-    print "load the image ok."
-except:
-    print "load image from the file failed"
+hierarchy_viewer = device.getHierarchyViewer()
+view_node = hierarchy_viewer.findViewById('id/prompt_text_view')
+text = view_node.namedProperties.get('mText').toString()
+print help(hierarchy)
 
-if result.sameAs(yuqitupian , 0.7):
-    print "the result is truth"
-else:
-    print "the result is fail"
+
+
+MonkeyRunner.sleep(5)
+
+
 
 
 
