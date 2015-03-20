@@ -58,35 +58,7 @@ MonkeyRunner.sleep(5)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 MonkeyRunner.sleep(3)
-
-
 
 def Denglu(self):
     print "start the app"
