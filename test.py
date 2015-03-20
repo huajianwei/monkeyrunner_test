@@ -23,13 +23,27 @@ except:
 
 print "ok"
 
+
+try:
+    hierarchyViewer = device.getHierarchyViewer()
+    print "have got the hierarchyViewer"
+    viewNodeButton = hierarchyViewer.findView(By.id("id/Email"))
+    print "ok11111111111"
+except:
+    print "there is somgthing happened"
+    MonkeyRunner.sleep(5)
+
+
+
 MonkeyRunner.sleep(3)
-devices.MonkeyRunner.alert("ok","stop")
+#devices.MonkeyRunner.alert("ok","stop")
 
 
 
-if __name__ == main():
+if __name__ == "main":
     main()
+
+
 
 
 
