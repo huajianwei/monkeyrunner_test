@@ -9,6 +9,7 @@ import time
 from com.android.monkeyrunner import MonkeyRunner,MonkeyDevice, MonkeyImage
 from com.android.monkeyrunner.easy import By
 from com.android.chimpchat.hierarchyviewer import HierarchyViewer
+from com.android.hierarchyviewerlib.models import ViewNode
 print "import the module end"
 
 
@@ -27,11 +28,30 @@ print "ok"
 try:
     hierarchyViewer = device.getHierarchyViewer()
     print "have got the hierarchyViewer"
-    viewNodeButton = hierarchyViewer.findView(By.id("id/Email"))
-    print "ok11111111111"
+    viewNodeButton = hierarchyViewer.findViewById("id/settings")
+#    pointButton = HierarchyViewer.getAbsoluteCenterOfView(viewNodeButton)
+    print "the view"
+    print viewNodeButton
 except:
     print "there is somgthing happened"
     MonkeyRunner.sleep(5)
+
+def getChildView(device,parentId,*childSeq):
+    #hierarchyViewer=device.getHierarchyViewer()
+    str_getchildview="hierarchyViewer.findViewById('" + parentId  + "')"
+    for index in childSeq:
+        str_getchildview += ('.children['+str(index)+']')
+    exec 'child_view = ' + str_getchildview
+    return child_view
+
+
+
+
+
+
+
+
+
 
 
 
