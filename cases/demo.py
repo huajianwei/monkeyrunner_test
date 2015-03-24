@@ -1,6 +1,14 @@
 __author__ = 'huajw'
 #coding=utf-8
 
+
+"""
+测试用例:登录
+用户名: mobiletest
+用户名登录密码:wuxian500
+
+"""
+
 import os
 import sys
 import time
@@ -53,11 +61,11 @@ try:
     MonkeyRunner.sleep(2)
     device.touch(318,189,"DOWN_AND_UP")
     #press the delete key
-    device.type('aaa')
+    device.type('mobiletest')
     MonkeyRunner.sleep(3)
     device.press('KEYCODE_ENTER',MonkeyDevice.UP)
     #device.touch(250,450,"DOWN_AND_UP")
-    device.type('123456')
+    device.type('wuxian500')
     MonkeyRunner.sleep(3)
     device.touch(240,445,"DOWN_AND_UP")
     MonkeyRunner.sleep(4)
