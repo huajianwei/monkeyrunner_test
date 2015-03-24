@@ -51,11 +51,15 @@ except :
 
 #log in (aaa,123456)
 
-MonkeyRunner.sleep(2)
+
+print "wait for 40S"
+
+MonkeyRunner.sleep(40)
 try:
     MonkeyRunner.sleep(2)
     #denglu
     device.touch(28,330,"DOWN_AND_UP")
+    print "start  the app"
 
 except:
     print "error start the app"
@@ -66,6 +70,8 @@ try:
     MonkeyRunner.sleep(2)
     #denglu
     #device.touch(28,330,"DOWN_AND_UP")
+    device.touch(164,520,"DOWN_AND_UP")
+    MonkeyRunner.sleep(2)
     device.touch(77,587,"DOWN_AND_UP")
     MonkeyRunner.sleep(2)
     device.touch(79,724,"DOWN_AND_UP")
