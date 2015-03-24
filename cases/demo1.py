@@ -3,7 +3,7 @@ __author__ = 'huajw'
 
 
 """
-测试用例:登录
+测试用例:
 用户名: mobiletest
 用户名登录密码:wuxian500
 
@@ -17,8 +17,8 @@ import time
 from com.android.monkeyrunner import MonkeyRunner,MonkeyDevice, MonkeyImage
 from com.android.monkeyrunner.easy import By
 from com.android.chimpchat.hierarchyviewer import HierarchyViewer
-print "import the module end"
 
+print "import the module end"
 
 # start the connect
 try:
@@ -56,15 +56,29 @@ try:
     MonkeyRunner.sleep(2)
     #denglu
     device.touch(28,330,"DOWN_AND_UP")
+
+except:
+    print "error start the app"
+
+
+
+try:
     MonkeyRunner.sleep(2)
-    device.touch(318,189,"DOWN_AND_UP")
+    #denglu
+    #device.touch(28,330,"DOWN_AND_UP")
+    device.touch(77,587,"DOWN_AND_UP")
     MonkeyRunner.sleep(2)
-    device.touch(318,189,"DOWN_AND_UP")
+    device.touch(79,724,"DOWN_AND_UP")
+    MonkeyRunner.sleep(2)
+    device.touch(179,289,"DOWN_AND_UP")
     #press the delete key
-    device.type('mobiletest')
+    #device.type('mobiletest')
+    MonkeyRunner.sleep(2)
+    device.touch(390,760,"DOWN_AND_UP")
     MonkeyRunner.sleep(3)
-    device.press('KEYCODE_ENTER',MonkeyDevice.UP)
-    #device.touch(250,450,"DOWN_AND_UP")
+    print "make sure of it"
+    MonkeyRunner.sleep(2)
+    device.touch(235,500,"DOWN_AND_UP")
     device.type('wuxian500')
     MonkeyRunner.sleep(3)
     device.touch(240,445,"DOWN_AND_UP")
