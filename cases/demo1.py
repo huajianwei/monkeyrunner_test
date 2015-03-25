@@ -59,7 +59,7 @@ MonkeyRunner.sleep(4)
 try:
     MonkeyRunner.sleep(2)
     #denglu
-    device.touch(159,510,"DOWN_AND_UP")
+    #device.touch(159,510,"DOWN_AND_UP")
     print "click the quit key"
 
 except:
@@ -90,7 +90,6 @@ except:
     print "something error happened when we open the jingzu_shengpingfu"
 
 
-tupianlujing = str(os.path.abspath(os.path.dirname(os.path.dirname(sys.argv[0]))) + "\yuqi\jinggao.png")
 
 try:
     result = device.takeSnapshot()
@@ -102,6 +101,7 @@ except:
     print "take snapshot failed"
 
 try:
+    tupianlujing = str(os.path.abspath(os.path.dirname(os.path.dirname(sys.argv[0]))) + "\yuqi\jinggao.png")
     yuqitupian = MonkeyRunner.loadImageFromFile( tupianlujing , 'png')
     print "load the image ok."
 except:
@@ -135,3 +135,47 @@ try:
     MonkeyRunner.sleep(10)
 except:
     print "the result is ok"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+try:
+    tupianlujing = str(os.path.abspath(os.path.dirname(os.path.dirname(sys.argv[0]))) + "\yuqi\queren.png")
+    result = device.takeSnapshot()
+    print "we hava already got the snapshot"
+    print  "*"*70
+    #result.writeToFile( tupianlujing , 'png')
+    print "result is loaded"
+except:
+    print "take snapshot failed"
+
+try:
+    yuqitupian = MonkeyRunner.loadImageFromFile( tupianlujing , 'png')
+    print "load the image ok."
+except:
+    print "load image from the file failed"
+
+print "*"*50
+
+
+if  result.sameAs(yuqitupian, 0.8) :
+#if 1:
+    print "the result is truth"
+else:
+    print "the result is fail"

@@ -53,8 +53,8 @@ print "click the quit key"
 
 try:
     print "wait for the wanrning message of update"
-    MonkeyRunner.sleep(6)
-    device.touch(140,508,"DOWN_AND_UP")
+    #MonkeyRunner.sleep(6)
+   # device.touch(140,508,"DOWN_AND_UP")
 except:
     print "click the key error"
 
@@ -74,6 +74,8 @@ try:
     MonkeyRunner.sleep(2)
     device.touch(318,189,"DOWN_AND_UP")
     #press the delete key
+    print "type in the user name and password"
+    MonkeyRunner.sleep(2)
     device.type('mobiletest')
     MonkeyRunner.sleep(3)
     device.press('KEYCODE_ENTER',MonkeyDevice.UP)
