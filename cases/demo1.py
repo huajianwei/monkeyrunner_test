@@ -3,8 +3,8 @@ __author__ = 'huajw'
 
 
 """
-测试用例:
-用户名: mobiletest
+测试用例:竟足胜平负
+用户名: 打开客户端,竟足,胜平负,点击选好了,弹出提示.
 用户名登录密码:wuxian500
 
 """
@@ -15,12 +15,16 @@ import time
 
 
 from com.android.monkeyrunner import MonkeyRunner,MonkeyDevice, MonkeyImage
-from com.android.monkeyrunner.easy import By
-from com.android.chimpchat.hierarchyviewer import HierarchyViewer
+#from com.android.monkeyrunner.easy import By
+#from com.android.chimpchat.hierarchyviewer import HierarchyViewer
 
 print "import the module end"
 
-# start the connect
+#获取当前脚本的路径
+
+#lujing = os.path.abspath(os.path.dirname(__file__)) + os.path.sep
+
+#start the connect
 try:
     device=MonkeyRunner.waitForConnection(1.0 , 'emulator-5554')
     #device=MonkeyRunner.waitForConnection(1.0 , 'emulator-5554')
@@ -33,7 +37,7 @@ MonkeyRunner.sleep(3)
 
 #start the app
 try:
-    print "log in the app"
+    print "start the app"
     device.press('KEYCODE_HOME',MonkeyDevice.DOWN)
     device.press('KEYCODE_HOME',MonkeyDevice.UP)
     MonkeyRunner.sleep(2)
@@ -52,14 +56,14 @@ except :
 #log in (aaa,123456)
 
 
-print "wait for 40S"
+print "wait for 4S"
 
-MonkeyRunner.sleep(40)
+MonkeyRunner.sleep(4)
 try:
     MonkeyRunner.sleep(2)
     #denglu
-    device.touch(28,330,"DOWN_AND_UP")
-    print "start  the app"
+    device.touch(159,510,"DOWN_AND_UP")
+    print "click the quit key"
 
 except:
     print "error start the app"
@@ -68,39 +72,37 @@ except:
 
 try:
     MonkeyRunner.sleep(2)
-    #denglu
-    #device.touch(28,330,"DOWN_AND_UP")
-    device.touch(164,520,"DOWN_AND_UP")
-    MonkeyRunner.sleep(2)
+    #打开竟足胜平负
     device.touch(77,587,"DOWN_AND_UP")
     MonkeyRunner.sleep(2)
     device.touch(79,724,"DOWN_AND_UP")
-    MonkeyRunner.sleep(2)
+    MonkeyRunner.sleep(5)
     device.touch(179,289,"DOWN_AND_UP")
+
     #press the delete key
     #device.type('mobiletest')
-    MonkeyRunner.sleep(2)
+    MonkeyRunner.sleep(3)
+    #print "click OK key"
     device.touch(390,760,"DOWN_AND_UP")
     MonkeyRunner.sleep(3)
-    print "make sure of it"
+    print "stop it"
     MonkeyRunner.sleep(2)
-    device.touch(235,500,"DOWN_AND_UP")
-    device.type('wuxian500')
-    MonkeyRunner.sleep(3)
-    device.touch(240,445,"DOWN_AND_UP")
-    MonkeyRunner.sleep(4)
+
+
 except:
-    print "something error happened"
+    print "something error happened when we open the jingzu_shengpingfu"
+
 
 try:
     result=device.takeSnapshot()
     print "we hava already got the snapshot"
-#    result.writeToFile('G:\my\monkeyrunner_test\jieguo\dengliyuqi.png','png')
+    result.writeToFile(' .\jinggao.png','png')
+    print "result is saved"
 except:
     print "take snapshot failed"
 
 try:
-    yuqitupian = MonkeyRunner.loadImageFromFile('G:\my\monkeyrunner_test\jieguo\dengliyuqi.png','png')
+    yuqitupian = MonkeyRunner.loadImageFromFile(' .\jinggao.png','png')
     print "load the image ok."
 except:
     print "load image from the file failed"
