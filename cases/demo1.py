@@ -20,9 +20,6 @@ from com.android.chimpchat.hierarchyviewer import HierarchyViewer
 
 print "import the module end"
 
-#获取当前脚本的路径
-
-#lujing = os.path.abspath(os.path.dirname(__file__)) + os.path.sep
 
 #start the connect
 try:
@@ -93,16 +90,19 @@ except:
     print "something error happened when we open the jingzu_shengpingfu"
 
 
+tupianlujing = str(os.path.abspath(os.path.dirname(os.path.dirname(sys.argv[0]))) + "\yuqi\jinggao.png")
+
 try:
     result = device.takeSnapshot()
     print "we hava already got the snapshot"
-    #result.writeToFile('G:\my\monkeyrunner_test\yuqi\jinggao.png','png')
+    print  "*"*70
+   # result.writeToFile( tupianlujing , 'png')
     print "result is loaded"
 except:
     print "take snapshot failed"
 
 try:
-    yuqitupian = MonkeyRunner.loadImageFromFile(' G:\my\monkeyrunner_test\yuqi\jinggao.png' , 'png')
+    yuqitupian = MonkeyRunner.loadImageFromFile( tupianlujing , 'png')
     print "load the image ok."
 except:
     print "load image from the file failed"
@@ -110,8 +110,8 @@ except:
 print "*"*50
 
 
-#if  result.sameAs(yuqitupian, 0.8) :
-if 1:
+if  result.sameAs(yuqitupian, 0.8) :
+#if 1:
     print "the result is truth"
 else:
     print "the result is fail"

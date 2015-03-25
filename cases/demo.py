@@ -84,17 +84,18 @@ try:
     MonkeyRunner.sleep(4)
 except:
     print "something error happened"
+tupianlujing = str(os.path.abspath(os.path.dirname(os.path.dirname(sys.argv[0]))) + "\yuqi\dengliyuqi.png")
 
 try:
     result=device.takeSnapshot()
     print "we hava already got the snapshot"
-#    result.writeToFile('G:\my\monkeyrunner_test\yuqi\dengliyuqi.png','png')
+#    result.writeToFile( tupianlujing ,'png')
 except:
     print "take snapshot failed"
 
 try:
 
-    yuqitupian = MonkeyRunner.loadImageFromFile('G:\my\monkeyrunner_test\yuqi\dengliyuqi.png','png')
+    yuqitupian = MonkeyRunner.loadImageFromFile(tupianlujing , 'png')
     print "load the image ok."
 except:
     print "load image from the file failed,please check the image's path"

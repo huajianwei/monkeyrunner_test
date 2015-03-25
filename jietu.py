@@ -22,11 +22,26 @@ except:
 
 MonkeyRunner.sleep(3)
 
+print "*"*40
+lujing = os.path.abspath(os.path.dirname(sys.argv[0]))
+print lujing
+tupianlujing1 = lujing + "\yuqi\jinggao.png"
+tupianlujing = str(tupianlujing1)
+
+
+if tupianlujing == "G:\my\monkeyrunner_test\yuqi\jinggao.png":
+    print "the path is ok"
+
+print tupianlujing
+print "G:\my\monkeyrunner_test\yuqi\jinggao.png"
+
+
 #jietu
 try:
     result=device.takeSnapshot()
     print "we hava already got the snapshot"
-#    result.writeToFile('G:\my\monkeyrunner_test\jieguo\dengliyuqi.png','png')
+    result.writeToFile( tupianlujing ,'png')
+    print "*"*40
 except:
     print "take snapshot failed"
 
