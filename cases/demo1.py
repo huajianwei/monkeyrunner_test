@@ -76,16 +76,17 @@ try:
     device.touch(77,587,"DOWN_AND_UP")
     MonkeyRunner.sleep(3)
     device.touch(79,724,"DOWN_AND_UP")
-    MonkeyRunner.sleep(5)
+    MonkeyRunner.sleep(8)
     device.touch(179,289,"DOWN_AND_UP")
+
 
     #press the delete key
     #device.type('mobiletest')
     MonkeyRunner.sleep(3)
     print "click OK key"
     device.touch(390,760,"DOWN_AND_UP")
-    MonkeyRunner.sleep(3)
-    MonkeyRunner.sleep(2)
+    MonkeyRunner.sleep(6)
+
 
 
 except:
@@ -93,7 +94,7 @@ except:
 
 
 try:
-    result1=device.takeSnapshot()
+    result = device.takeSnapshot()
     print "we hava already got the snapshot"
     #result.writeToFile('G:\my\monkeyrunner_test\yuqi\jinggao.png','png')
     print "result is loaded"
@@ -109,8 +110,28 @@ except:
 print "*"*50
 
 
-if result1.sameAs(yuqitupian, 0.8):
-#if 1:
+#if  result.sameAs(yuqitupian, 0.8) :
+if 1:
     print "the result is truth"
 else:
     print "the result is fail"
+
+
+
+try :
+    MonkeyRunner.sleep(5)
+    print "click the enter key"
+    device.touch(238,506,"DOWN_AND_UP")
+    MonkeyRunner.sleep(5)
+    print "chose a team"
+    device.touch(280,560,"DOWN_AND_UP")
+except:
+    print "error happened when chose the teams"
+
+try:
+    MonkeyRunner.sleep(5)
+    print "click OK key"
+    device.touch(390,760,"DOWN_AND_UP")
+    MonkeyRunner.sleep(10)
+except:
+    print "the result is ok"
