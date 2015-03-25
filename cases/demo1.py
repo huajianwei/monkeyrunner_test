@@ -15,8 +15,8 @@ import time
 
 
 from com.android.monkeyrunner import MonkeyRunner,MonkeyDevice, MonkeyImage
-#from com.android.monkeyrunner.easy import By
-#from com.android.chimpchat.hierarchyviewer import HierarchyViewer
+from com.android.monkeyrunner.easy import By
+from com.android.chimpchat.hierarchyviewer import HierarchyViewer
 
 print "import the module end"
 
@@ -71,10 +71,10 @@ except:
 
 
 try:
-    MonkeyRunner.sleep(2)
+    MonkeyRunner.sleep(4)
     #打开竟足胜平负
     device.touch(77,587,"DOWN_AND_UP")
-    MonkeyRunner.sleep(2)
+    MonkeyRunner.sleep(3)
     device.touch(79,724,"DOWN_AND_UP")
     MonkeyRunner.sleep(5)
     device.touch(179,289,"DOWN_AND_UP")
@@ -82,10 +82,9 @@ try:
     #press the delete key
     #device.type('mobiletest')
     MonkeyRunner.sleep(3)
-    #print "click OK key"
+    print "click OK key"
     device.touch(390,760,"DOWN_AND_UP")
     MonkeyRunner.sleep(3)
-    print "stop it"
     MonkeyRunner.sleep(2)
 
 
@@ -94,20 +93,24 @@ except:
 
 
 try:
-    result=device.takeSnapshot()
+    result1=device.takeSnapshot()
     print "we hava already got the snapshot"
-    result.writeToFile(' .\jinggao.png','png')
-    print "result is saved"
+    #result.writeToFile('G:\my\monkeyrunner_test\yuqi\jinggao.png','png')
+    print "result is loaded"
 except:
     print "take snapshot failed"
 
 try:
-    yuqitupian = MonkeyRunner.loadImageFromFile(' .\jinggao.png','png')
+    yuqitupian = MonkeyRunner.loadImageFromFile(' G:\my\monkeyrunner_test\yuqi\jinggao.png' , 'png')
     print "load the image ok."
 except:
     print "load image from the file failed"
 
-if result.sameAs(yuqitupian , 0.7):
+print "*"*50
+
+
+if result1.sameAs(yuqitupian, 0.8):
+#if 1:
     print "the result is truth"
 else:
     print "the result is fail"

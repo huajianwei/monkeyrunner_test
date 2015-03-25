@@ -33,7 +33,7 @@ MonkeyRunner.sleep(3)
 
 #start the app
 try:
-    print "log in the app"
+    print "start the app"
     device.press('KEYCODE_HOME',MonkeyDevice.DOWN)
     device.press('KEYCODE_HOME',MonkeyDevice.UP)
     MonkeyRunner.sleep(2)
@@ -48,8 +48,19 @@ try:
 except :
     print "error start  app 500.com ,please check the Activity"
 
+#点击取消按钮
+print "click the quit key"
 
-#log in (aaa,123456)
+try:
+    print "wait for the wanrning message of update"
+    MonkeyRunner.sleep(6)
+    device.touch(140,508,"DOWN_AND_UP")
+except:
+    print "click the key error"
+
+
+
+
 
 MonkeyRunner.sleep(2)
 try:
@@ -57,6 +68,8 @@ try:
     #denglu
     device.touch(28,330,"DOWN_AND_UP")
     MonkeyRunner.sleep(2)
+    device.touch(318,189,"DOWN_AND_UP")
+    MonkeyRunner.sleep(3)
     device.touch(318,189,"DOWN_AND_UP")
     MonkeyRunner.sleep(2)
     device.touch(318,189,"DOWN_AND_UP")
@@ -75,23 +88,19 @@ except:
 try:
     result=device.takeSnapshot()
     print "we hava already got the snapshot"
-#    result.writeToFile('G:\my\monkeyrunner_test\jieguo\dengliyuqi.png','png')
+#    result.writeToFile('G:\my\monkeyrunner_test\yuqi\dengliyuqi.png','png')
 except:
     print "take snapshot failed"
 
 try:
-    yuqitupian = MonkeyRunner.loadImageFromFile('G:\my\monkeyrunner_test\jieguo\dengliyuqi.png','png')
+
+    yuqitupian = MonkeyRunner.loadImageFromFile('G:\my\monkeyrunner_test\yuqi\dengliyuqi.png','png')
     print "load the image ok."
 except:
-    print "load image from the file failed"
+    print "load image from the file failed,please check the image's path"
 
 if result.sameAs(yuqitupian , 0.7):
     print "the result is truth"
 else:
     print "the result is fail"
-
-
-
-
-
 
